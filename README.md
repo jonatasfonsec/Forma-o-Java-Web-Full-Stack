@@ -1,7 +1,7 @@
 # Formação-Java-Web-Full-Stack
 Repositiório utilizado para o estudo do curso Formação Java Web Full-Stack do site jdevtreinamentos (https://www.jdevtreinamento.com.br)
 
-PARTE 1 - O INÍCIO
+# PARTE 1 - O COMEÇO DO INÍCIO
 Módulo 1 - 11 / 11
 • Projetos e a história do Java
 Módulo 2 - 19 / 19
@@ -23,7 +23,7 @@ Módulo 9 - 17 / 36
 Módulo 10 - 0 / 14
 • A Herança o Polimorfismo e Interfaces
 
-PARTE 2 - SAINDO DO BÁSICO
+# PARTE 2 - BOTANDO A MÃO NA MASSA.
 Módulo 11 - 0 / 15
 • Tratamentos de erros e exceções em Java
 Módulo 12 - 0 / 5
@@ -45,7 +45,7 @@ Módulo 19 - 0 / 18
 Módulo 20 - 0 / 4
 • Mini Treinamento Front-End
 
-PARTE 3 - BOTANDO A MÃO NA MASSA...
+# PARTE 3 - MEIO QUE NO MEIO.
 Módulo 21 - 0 / 20
 • Introdução prática ao SQL e ao JDBC em Java
 Módulo 22 - 0 / 103
@@ -65,7 +65,7 @@ Módulo 28 - 0 / 58
 Módulo 29 - 0 / 138
 • 6º - JSF 2.2 e PrimeFaces + Spring Framework + Hibernate (Antigo)
 
-PARTE FINAL - ENFIM FINALMENTE.
+# PARTE FINAL - ENFIM FINALMENTE.
 Módulo 30 - 0 / 20
 • 1º - Spring Data e JPA - Persistência de forma simples
 Módulo 31 - 0 / 21
