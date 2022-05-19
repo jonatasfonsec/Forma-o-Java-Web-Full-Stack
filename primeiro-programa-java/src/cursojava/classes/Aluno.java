@@ -1,5 +1,7 @@
 package cursojava.classes;
 
+import java.util.Objects;
+
 /*Esta é nossa classe/objeto que representa um aluno*/
 public class Aluno {
 	
@@ -220,6 +222,28 @@ public class Aluno {
 				+ ", disciplina2=" + disciplina2 + ", nota3=" + nota3 + ", disciplina3=" + disciplina3 + ", nota4="
 				+ nota4 + ", disciplina4=" + disciplina4 + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(nome, numeroCpf);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aluno other = (Aluno) obj;
+		return Objects.equals(nome, other.nome) && Objects.equals(numeroCpf, other.numeroCpf);
+	}
+
+
+
+
+	
 
 
 	
