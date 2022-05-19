@@ -9,7 +9,7 @@ public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 		
 		/*new Aluno() é uma instancia (Criacao de Objeto)
-		aluno1 é uma referência para o objeto aluno
+		aluno1 é uma referência para o objeto aluno*/
 		
 		String nome = JOptionPane.showInputDialog("Qual o nome do aluno?");
 		String idade = JOptionPane.showInputDialog("Qual a idade?");
@@ -37,7 +37,7 @@ public class PrimeiraClasseJava {
 		
 		
 		Aluno aluno1 = new Aluno(); /*Aqui será o João*/
-		/*
+		
 		aluno1.setNome(nome);
 		aluno1.setIdade(Integer.valueOf(idade));
 		aluno1.setDataNascimento(dataNascimento);
@@ -59,25 +59,12 @@ public class PrimeiraClasseJava {
 		aluno1.setDisciplina4(disciplina4);
 		
 		
-		System.out.println(aluno1); /*Descrição do objeto na memória
+		System.out.println(aluno1); /*Descrição do objeto na memória*/
 		System.out.println("Média do aluno: " + aluno1.getMediaNota());
-		System.out.println("Resultado: " + aluno1.getAlunoAprovado2());*/
+		System.out.println("Resultado: " + aluno1.getAlunoAprovado2());
 		
-		/*9.16 - Equals e hashcode(Diferenciar e comparar objetos)*/
-		
-		Aluno aluno1 = new Aluno();
-		aluno1.setNome("Alex");
-		aluno1.setNumeroCpf("123");
-		
-		Aluno aluno2 = new Aluno();
-		aluno2.setNome("Alex");
-		aluno2.setNumeroCpf("1234");
-		
-		if(aluno1.equals(aluno2)) {
-			System.out.println("Alunos são iguais");
-		}else {
-			System.out.println("Alunos são diferentes.");
-		}
+		/*[FEITO]9.16 - Equals e hashcode(Diferenciar e comparar objetos)*/
+
 		
 		
 		
