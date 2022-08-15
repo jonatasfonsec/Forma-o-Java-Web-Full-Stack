@@ -69,15 +69,19 @@ public class PrimeiraClasseJava {
 					continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover?");
 				}
 			}
-			
+			 
 			alunos.add(aluno1);
 		}
 		
 			for (Aluno aluno : alunos) {
+				
+				if(aluno.getNome().equalsIgnoreCase("alex"))
+				
 				System.out.println(aluno); /* Descrição do objeto na memória */
 				System.out.println("Média do aluno: " + aluno.getMediaNota());
 				System.out.println("Resultado: " + aluno.getAlunoAprovado2());
 				System.out.println("-----------------------------------");
+				break;
 				/* [FEITO]9.16 - Equals e hashcode(Diferenciar e comparar objetos) */
 			}
 		
