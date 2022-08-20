@@ -1,6 +1,7 @@
 package cursojava.executavel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -14,11 +15,12 @@ public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 
 		List<Aluno> alunos = new ArrayList<Aluno>();
-		List<Aluno> alunosAprovados = new ArrayList<Aluno>();
-		List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
-		List<Aluno> alunosReprovados = new ArrayList<Aluno>();
+		
+		/*É uma lista que dentro dela temos uma chave que identifica uma sequencia de valores também*/
+		HashMap<String, List<Aluno>> maps = new HashMap<String,List<Aluno>>();
+		
 
-		for (int qtd = 1; qtd <= 5; qtd++) {
+		for (int qtd = 1; qtd <= 3; qtd++) {
 			/*
 			 * new Aluno() é uma instancia (Criacao de Objeto) aluno1 é uma referência para
 			 * o objeto aluno
@@ -59,45 +61,49 @@ public class PrimeiraClasseJava {
 				aluno1.getDisciplinas().add(disciplina);
 			}
 
-			int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
-
-			if (escolha == 0) { /* Opção SIM e Zero */
-
-				int continuarRemover = 0;
-				int posicao = 1;
-
-				while (continuarRemover == 0) {
-					String disciplinaRemover = JOptionPane.showInputDialog("Qual a disciplina 1,2,3 ou 4? ");
-					aluno1.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue() - posicao);
-					posicao++;
-					continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover?");
-				}
-			}
+//			int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
+//
+//			if (escolha == 0) { /* Opção SIM e Zero */
+//
+//				int continuarRemover = 0;
+//				int posicao = 1;
+//
+//				while (continuarRemover == 0) {
+//					String disciplinaRemover = JOptionPane.showInputDialog("Qual a disciplina 1,2,3 ou 4? ");
+//					aluno1.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue() - posicao);
+//					posicao++;
+//					continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover?");
+//				}
+//			}
 
 			alunos.add(aluno1);
 		}
+		
+		maps.put(StatusAluno.APROVADO, new ArrayList<Aluno>());
+		maps.put(StatusAluno.REPROVADO, new ArrayList<Aluno>());
+		maps.put(StatusAluno.RECUPERACAO, new ArrayList<Aluno>());
 
 		for (Aluno aluno : alunos) { /*Separei em listas*/
 			if (aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.APROVADO)) {
-				alunosAprovados.add(aluno);
+				maps.get(StatusAluno.APROVADO).add(aluno);
 			} else if (aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.RECUPERACAO)) {
-				alunosRecuperacao.add(aluno);
+				maps.get(StatusAluno.RECUPERACAO).add(aluno);
 			} else {
-				alunosReprovados.add(aluno);
+				maps.get(StatusAluno.REPROVADO).add(aluno);
 			}
 		}
 		
-			System.out.println("-----------------Lista dos Aprovados"+"[TOTAL="+alunosAprovados.size()+"]-----------");
-			for (Aluno aluno : alunosAprovados) {
+			System.out.println("-----------------Lista dos Aprovados"+"[TOTAL="+maps.get(StatusAluno.APROVADO).size()+"]-----------");
+			for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
 				System.out.println("Aluno: " + aluno.getNome() + ". Resultado = " + aluno.getAlunoAprovado2() + " com média de = " + aluno.getMediaNota());			
 		    }
 			
-			System.out.println("-----------------Lista dos Reprovados"+"[TOTAL="+alunosReprovados.size()+"]-----------");
-			for (Aluno aluno : alunosReprovados) {
+			System.out.println("-----------------Lista dos Reprovados"+"[TOTAL="+maps.get(StatusAluno.REPROVADO).size()+"]-----------");
+			for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
 				System.out.println("Aluno: " + aluno.getNome() + ". Resultado = " + aluno.getAlunoAprovado2() + " com média de = " + aluno.getMediaNota());
 			}
-			System.out.println("-----------------Lista dos Recuperacao"+"[TOTAL="+alunosRecuperacao.size()+"-----------");
-			for (Aluno aluno : alunosRecuperacao) {
+			System.out.println("-----------------Lista dos Recuperacao"+"[TOTAL="+maps.get(StatusAluno.RECUPERACAO).size()+"]-----------");
+			for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
 				System.out.println("Aluno: " + aluno.getNome() + ". Resultado = " + aluno.getAlunoAprovado2() + " com média de = " + aluno.getMediaNota());
 			}
 			
