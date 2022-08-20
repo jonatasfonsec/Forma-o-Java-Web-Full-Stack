@@ -14,7 +14,7 @@ public class PrimeiraClasseJava {
 
 		List<Aluno> alunos = new ArrayList<Aluno>();
 
-		for (int qtd = 1; qtd <= 2; qtd++) {
+		for (int qtd = 1; qtd <= 1; qtd++) {
 			/*
 			 * new Aluno() é uma instancia (Criacao de Objeto) aluno1 é uma referência para
 			 * o objeto aluno
@@ -73,29 +73,26 @@ public class PrimeiraClasseJava {
 			alunos.add(aluno1);
 		}
 		
-			for (Aluno aluno : alunos) {
-				
-				if(aluno.getNome().equalsIgnoreCase("alex")) {
-					alunos.remove(aluno);
-				break;
-				} else{
-					System.out.println(aluno); /* Descrição do objeto na memória */
-					System.out.println("Média do aluno: " + aluno.getMediaNota());
-					System.out.println("Resultado: " + aluno.getAlunoAprovado2());
-					System.out.println("-----------------------------------");
-				}
-				
-				/* [FEITO]9.16 - Equals e hashcode(Diferenciar e comparar objetos) */
+		for ( int pos = 0; pos < alunos.size();pos++) {
+			
+			Aluno aluno = alunos.get(pos);
+			
+			System.out.println("Aluno = " + aluno.getNome());
+			System.out.println("Média do aluno = " + aluno.getMediaNota());
+			System.out.println("Resultado = " + aluno.getAlunoAprovado2());
+			System.out.println("---------------------------------------------------------");
+			
+			
+//			for (Disciplina disc : aluno.getDisciplinas()) {
+			for(int posd = 0; posd < aluno.getDisciplinas().size();posd++) {
+				Disciplina disc = aluno.getDisciplinas().get(posd);
+				System.out.println(" Materia = " + disc.getDisciplina() + "Nota = " + disc.getNota());
 			}
 			
-			for (Aluno aluno : alunos) {
-				System.out.println("Alunos que sobraram na lista");
-				System.out.println(aluno.getNome());
-				System.out.println("Suas matérias são: ");
-				for (Disciplina disciplina : aluno.getDisciplinas()) {
-					System.out.println(disciplina.getDisciplina());
-				}
-			}
+			
+		}	
+		
+		
 		
 		
 		
