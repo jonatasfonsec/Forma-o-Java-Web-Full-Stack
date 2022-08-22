@@ -180,14 +180,14 @@ public class Aluno extends Pessoa {
 		Aluno other = (Aluno) obj;
 		return Objects.equals(nome, other.nome) && Objects.equals(numeroCpf, other.numeroCpf);
 	}
-
-
-
-
 	
+	@Override /*Identifica metodo sobreescrito*/
+	public boolean pessoaMaiorIdade() {
+		return idade>=21;
+	}
 
-
-	
-	
+	public String msgMaiorIdade () {
+		return this.pessoaMaiorIdade() ? "Aluno é maior de idade" : "Aluno é menor de idade";
+	}
 }
  
