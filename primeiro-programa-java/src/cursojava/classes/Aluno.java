@@ -7,21 +7,14 @@ import java.util.Objects;
 import cursojava.constantes.StatusAluno;
 
 /*Esta é nossa classe/objeto que representa um aluno*/
-public class Aluno {
+public class Aluno extends Pessoa {
 	
 	/*Esses são os atributos dos alunos*/
 	/*por padrão variáveis são private*/
-	String nome;
-	int idade;
-	String dataNascimento;
-	String registroGeral;
-	String numeroCpf;
-	String nomeMae;
-	String nomePai;
+
 	String dataMatricula;
 	String nomeEscola;
 	String serieMatriculado;
-	
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
 	public void setDisciplinas(List<Disciplina> disciplinas) {
