@@ -16,6 +16,8 @@ public class PrimeiraClasseJava {
 
 	public static void main(String[] args) {
 		
+		try {
+		
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 		
@@ -23,14 +25,17 @@ public class PrimeiraClasseJava {
 		if (new FuncaoAutenticacao(new Diretor(login,senha)).autenticar()) {/*Vou travar o contrato para autorizar somente quem realmente tem o contrato 100% legítimo*/
 			/*Se true, acessa. Senão não acessa*/
 		
-
+			
+		//simulacao de erro
+		//List<Aluno> alunos = null;
+			
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		
 		/*É uma lista que dentro dela temos uma chave que identifica uma sequencia de valores também*/
 		HashMap<String, List<Aluno>> maps = new HashMap<String,List<Aluno>>();
 		
 
-		for (int qtd = 1; qtd <= 3; qtd++) {
+		for (int qtd = 1; qtd <= 2; qtd++) {
 			/*
 			 * new Aluno() é uma instancia (Criacao de Objeto) aluno1 é uma referência para
 			 * o objeto aluno
@@ -123,6 +128,9 @@ public class PrimeiraClasseJava {
 		JOptionPane.showMessageDialog(null, "Acesso não permitido","Erro:",JOptionPane.ERROR_MESSAGE);
 		
 		}
-		
+	}catch (Exception e) {
+			e.printStackTrace(); /*Imprime o erro no console Java */
+			JOptionPane.showMessageDialog(null, "Erro ao processar notas");
 	}
+	}// fim do main
 }
