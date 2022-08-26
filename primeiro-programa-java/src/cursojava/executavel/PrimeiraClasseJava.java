@@ -1,5 +1,6 @@
 package cursojava.executavel;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +18,8 @@ public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 
 		try {
-
+			new File("Arquivo.txt");
+			
 			String login = JOptionPane.showInputDialog("Informe o login");
 			String senha = JOptionPane.showInputDialog("Informe a senha");
 
@@ -29,9 +31,9 @@ public class PrimeiraClasseJava {
 				/* Se true, acessa. Senão não acessa */
 
 				// simulacao de erro
-				List<Aluno> alunos = null;
+				//List<Aluno> alunos = null;
 
-				// List<Aluno> alunos = new ArrayList<Aluno>();
+				List<Aluno> alunos = new ArrayList<Aluno>();
 
 				/*
 				 * É uma lista que dentro dela temos uma chave que identifica uma sequencia de
@@ -39,30 +41,34 @@ public class PrimeiraClasseJava {
 				 */
 				HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
-				for (int qtd = 1; qtd <= 2; qtd++) {
+				for (int qtd = 1; qtd <= 1; qtd++) {
 					/*
 					 * new Aluno() é uma instancia (Criacao de Objeto) aluno1 é uma referência para
 					 * o objeto aluno
 					 */
 
 					String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + " ?");
-					/*
-					 * String idade = JOptionPane.showInputDialog("Qual a idade?"); String
-					 * dataNascimento = JOptionPane.showInputDialog("Data de Nascimento ?"); String
-					 * rg = JOptionPane.showInputDialog("Registro Geral?"); String cpf =
-					 * JOptionPane.showInputDialog("Qual é o CPF? "); String mae =
-					 * JOptionPane.showInputDialog("Nome da mãe?"); String pai =
-					 * JOptionPane.showInputDialog("Nome do pai?"); String matricula =
-					 * JOptionPane.showInputDialog("Data da matricula?"); String serie =
-					 * JOptionPane.showInputDialog("Qual serie?"); String escola =
-					 * JOptionPane.showInputDialog("Qual escola?");
-					 */
+					
+					 String idade = JOptionPane.showInputDialog("Qual a idade?"); 
+					 
+//					 String dataNascimento = JOptionPane.showInputDialog("Data de Nascimento ?");
+//					 String rg = JOptionPane.showInputDialog("Registro Geral?");
+//					 String cpf = JOptionPane.showInputDialog("Qual é o CPF? ");
+//					 String mae = JOptionPane.showInputDialog("Nome da mãe?");
+//					 String pai = JOptionPane.showInputDialog("Nome do pai?");
+//					 String matricula = JOptionPane.showInputDialog("Data da matricula?"); 
+//					 String serie = JOptionPane.showInputDialog("Qual serie?");
+//					 String escola = JOptionPane.showInputDialog("Qual escola?");
+					 
+					 
 
 					Aluno aluno1 = new Aluno();
 
 					aluno1.setNome(nome);
+					aluno1.setIdade(Integer.valueOf(idade));
+					
 					/*
-					 * aluno1.setIdade(Integer.valueOf(idade));
+					 * 
 					 * aluno1.setDataNascimento(dataNascimento); aluno1.setRegistroGeral(rg);
 					 * aluno1.setNumeroCpf(cpf); aluno1.setNomeMae(mae); aluno1.setNomePai(pai);
 					 * aluno1.setDataMatricula(matricula); aluno1.setSerieMatriculado(serie);
@@ -140,7 +146,7 @@ public class PrimeiraClasseJava {
 			
 			/*Aqui*/
 			
-		} catch (Exception e) {
+		} catch (NumberFormatException e) {
 			
 			StringBuilder saida= new StringBuilder();
 			
@@ -159,8 +165,12 @@ public class PrimeiraClasseJava {
 			
 			
 
-			JOptionPane.showMessageDialog(null, "Erro ao processar notas " + saida.toString());
+			JOptionPane.showMessageDialog(null, "Erro de conversão de números " + saida.toString());
 
+		} catch (NullPointerException e) {
+			JOptionPane.showMessageDialog(null, "Null Pointer:  " + e.getClass());
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
 
 	}// fim do main
