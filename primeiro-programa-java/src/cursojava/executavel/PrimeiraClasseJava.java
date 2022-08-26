@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -18,7 +19,8 @@ public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 
 		try {
-			new File("Arquivo.txt");
+			File fil = new File("c://lines.txt");
+			Scanner scanner = new Scanner(fil);
 			
 			String login = JOptionPane.showInputDialog("Informe o login");
 			String senha = JOptionPane.showInputDialog("Informe a senha");
@@ -153,7 +155,7 @@ public class PrimeiraClasseJava {
 			/*Imprime erro no console Java*/
 			e.printStackTrace();
 			
-			/*Mensgem do erro ou causa*/
+			/*Mensagem do erro ou causa*/
 			System.out.println(" Mensagem : " + e.getMessage());
 			
 			for(int pos = 0; pos < e.getStackTrace().length;pos++) {
@@ -169,8 +171,11 @@ public class PrimeiraClasseJava {
 
 		} catch (NullPointerException e) {
 			JOptionPane.showMessageDialog(null, "Null Pointer:  " + e.getClass());
-		}catch (Exception e) {
+		}
+		
+		catch (Exception e) {
 			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro inesperado : " + e.getClass().getName());
 		}
 
 	}// fim do main
