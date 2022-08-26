@@ -1,6 +1,7 @@
 package cursojava.executavel;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import curso.java.excecao.ExcecaoProcessarNota;
 import cursojava.classes.Aluno;
 import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
@@ -19,8 +21,7 @@ public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 
 		try {
-			File fil = new File("c://lines.txt");
-			Scanner scanner = new Scanner(fil);
+			
 			
 			String login = JOptionPane.showInputDialog("Informe o login");
 			String senha = JOptionPane.showInputDialog("Informe a senha");
@@ -181,4 +182,17 @@ public class PrimeiraClasseJava {
 		}
 
 	}// fim do main
+	
+	private void lerArquivo() throws ExcecaoProcessarNota,FileNotFoundException {
+		try {
+		File fil = new File("c://lines.txt");
+		Scanner scanner = new Scanner(fil);
+		}catch (FileNotFoundException e){
+			throw new ExcecaoProcessarNota(e.getMessage());
+		}
+
+	}
+	
+	
+	
 }
