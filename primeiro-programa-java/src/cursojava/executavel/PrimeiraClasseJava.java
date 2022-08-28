@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-import curso.java.excecao.ExcecaoProcessarNota;
 import cursojava.classes.Aluno;
 import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
