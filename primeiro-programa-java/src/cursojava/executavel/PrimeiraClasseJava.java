@@ -19,10 +19,12 @@ import cursojava.constantes.StatusAluno;
 public class PrimeiraClasseJava {
 
 	public static void main(String[] args) {
+		
+		
 
 		try {
 			
-			
+			lerArquivo();
 			String login = JOptionPane.showInputDialog("Informe o login");
 			String senha = JOptionPane.showInputDialog("Informe a senha");
 
@@ -149,7 +151,7 @@ public class PrimeiraClasseJava {
 			
 			/*Aqui*/
 			
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 			
 			StringBuilder saida= new StringBuilder();
 			
@@ -170,26 +172,18 @@ public class PrimeiraClasseJava {
 
 			JOptionPane.showMessageDialog(null, "Erro de conversão de números " + saida.toString());
 
-		} catch (NullPointerException e) {
-			JOptionPane.showMessageDialog(null, "Null Pointer:  " + e.getClass());
-		}
-		
-		catch (Exception e) {
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro inesperado : " + e.getClass().getName());
+		 
 		}finally { /*Sempre é executado ocorrendo erros ou não*/
 			JOptionPane.showMessageDialog(null,"Você está aprendendo Java. Obrigado.");
 		}
 
 	}// fim do main
 	
-	private void lerArquivo() throws ExcecaoProcessarNota,FileNotFoundException {
-		try {
+	private static void lerArquivo() throws FileNotFoundException {
+	
 		File fil = new File("c://lines.txt");
 		Scanner scanner = new Scanner(fil);
-		}catch (FileNotFoundException e){
-			throw new ExcecaoProcessarNota(e.getMessage());
-		}
+
 
 	}
 	
