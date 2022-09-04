@@ -2,42 +2,36 @@ package cursojava.executavel;
 
 import javax.swing.JOptionPane;
 
-public class ArrayVetor {
+import cursojava.classes.Aluno;
+import cursojava.classes.Disciplina;
 
+public class ArrayVetor {
+	
+	
+	
 	/*Usado para executar código*/
 	public static void main(String[] args) {
+	double[]notas = {8.8,9.7,7.6,6.8};
+	double[]notasLogica= {7.1,5.7,9.6,7.8};
+	Aluno aluno = new Aluno();
+	
+	aluno.setNome("Alex");
+	aluno.setNomeEscola("JDEV");
+	
+	//Criação de disciplina
+	Disciplina disciplina = new Disciplina();
+	disciplina.setDisciplina("Curso de Java");
+	disciplina.setNota(notas);
+	
 		
-		/*Array pode ser de todos os tipos de dados e objetos tbm*/
-		
-		String posicoes = JOptionPane.showInputDialog("Quantas posições o Array deve ter?");
-		
-		
-		/*Array sempre deve ter uma quantidade de posições definidas*/
-		/*Sempre deve ser instanciado*/
-		double notas[] = new double[Integer.parseInt(posicoes)];
-		
-		
-		for (int pos = 0; pos < notas.length; pos++) {
-			String valor = JOptionPane.showInputDialog("Qual o valor da posição = " + pos);
-			notas[pos] = Double.valueOf(valor);
-		}
-		
-		
-		
-		
-		
-		/*Atribuir valor nas posições do Array*/
-		
-		for (int pos = 0; pos < notas.length;pos++) {
-			
-				System.out.println("Nota " + (pos+1) + " é = " + notas[pos]);
-			
-		}
-		
-		
-		//double [] notas;
-		
+	aluno.getDisciplinas().add(disciplina);
+	
+	Disciplina disciplina2 = new Disciplina();
+	disciplina2.setDisciplina("Lógica");
+	disciplina2.setNota(notasLogica);
+	
+	aluno.getDisciplinas().add(disciplina2);
+	
 		
 	}
-	
 }
