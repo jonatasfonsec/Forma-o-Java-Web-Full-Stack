@@ -3,19 +3,22 @@ package cursojava.thread;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-public class implementacaoFilaThread extends Thread {
+public class ImplementacaoFilaThread extends Thread {
 
-	private static ConcurrentLinkedQueue<ObjetoFilaThread> pilha_filha = new ConcurrentLinkedQueue<ObjetoFilaThread>();
+	private static ConcurrentLinkedQueue<ObjetoFilaThread> pilha_fila = new ConcurrentLinkedQueue<ObjetoFilaThread>();
 
 	public static void add(ObjetoFilaThread objetoFilaThread) {
-		pilha_filha.add(objetoFilaThread);
+		pilha_fila.add(objetoFilaThread);
 	}
 
 	@Override
 	public void run() {
-		Iterator iteracao = pilha_filha.iterator();
+		System.out.println("Fila iniciada...");
+		
+		while(true) {
 
-		synchronized (iteracao) { /*Bloqueia o acesso a esta lista por outros processos*/
+		synchronized (pilha_fila) { /*Bloqueia o acesso a esta lista por outros processos*/
+		Iterator iteracao = pilha_fila.iterator();
 		while (iteracao.hasNext()) { /* Enquanto conter dados na lista irá processar */
 
 			ObjetoFilaThread processar = (ObjetoFilaThread) iteracao.next(); /* Pega o objeto atual */
@@ -31,7 +34,7 @@ public class implementacaoFilaThread extends Thread {
 
 			iteracao.remove(); /* Remove para o próximo objeto */
 			try {
-				Thread.sleep(100); /* Dar um tempo para descarga de memória */
+				Thread.sleep(1000); /* Dar um tempo para descarga de memória */
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -45,8 +48,10 @@ public class implementacaoFilaThread extends Thread {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+}	
 		
 	}
+	
+
 
 }
