@@ -36,7 +36,7 @@ public class Arquivos {
 		pessoas.add(pessoa3);
 		
 		
-		File arquivo = new File("C:\\Users\\Jonatas\\git\\repository\\primeiro-programa-java\\src\\arquivos\\arquivo.txt");
+		File arquivo = new File("C:\\Users\\Jonatas\\git\\repository\\primeiro-programa-java\\src\\arquivos\\arquivo.csv");
 		
 		if(!arquivo.exists()) {
 			arquivo.createNewFile();
