@@ -5,6 +5,7 @@ import java.util.Properties;
 import javax.mail.Address;
 import javax.mail.Authenticator;
 import javax.mail.Message;
+import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
@@ -18,14 +19,13 @@ import org.junit.Test;
  */
 public class AppTest 
 {
-	private String userName="dummy86.javaweb@gmail.com";
-	private String senha="J12345678";
+	private String userName="jonatas.fonsec@outlook.com";
+	private String senha="gangrel86";
 	
 	
 	@Test
 	public void testeEmail() {
 		try {
-			
 	
 		/*Olhe as configurações de smtp*/
 		//
@@ -34,10 +34,10 @@ public class AppTest
 		
 		Properties properties = new Properties();
 		properties.put("mail.smtp.auth","true");/*Autorização*/
-		properties.put("mail.smtp.starttls","true");/*Autenticação*/
-		properties.put("mail.smtp.host","smtp.gmail.com"); /*Servidor Gmail*/
-		properties.put("mail.smtp.port","465");/*porta do servidor*/
-		properties.put("mail.smtp.socketFactory.port","465");/*Porta conectada pelo Socket*/
+		properties.put("mail.smtp.starttls.enable","true");/*Autenticação*/
+		properties.put("mail.smtp.host","smtp-mail.outlook.com"); /*Servidor Gmail*/
+		properties.put("mail.smtp.port","587");/*porta do servidor*/
+		properties.put("mail.smtp.socketFactory.port","587");/*Porta conectada pelo Socket*/
 		properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");/*Classe Socket de conexão ao SMTP*/
 		
 		Session session = Session.getInstance(properties,new Authenticator() {
@@ -51,7 +51,7 @@ public class AppTest
 		
 		//System.out.println(session);
 		
-		Address[] toUser = InternetAddress.parse("dummy86.javaweb@gmail.com,jonatas.fonsec@gmail.com");
+		Address[] toUser = InternetAddress.parse("jonatas.fonsec@outlook.com,jonatas.fonsec@gmail.com");
 		
 		Message message = new MimeMessage(session);
 		message.setFrom(new InternetAddress(userName)); /*Quem esta enviando*/
@@ -61,11 +61,10 @@ public class AppTest
 		
 		Transport.send(message);
 		
+		System.out.println("Mensagem enviada!");
 		
-		
-		
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
 		}
 	}
 }
