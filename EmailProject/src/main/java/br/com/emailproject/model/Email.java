@@ -5,6 +5,16 @@ public class Email {
 	private String destinatario;
 	private String assunto;
 	private String texto;
+	
+	
+	
+	
+	public Email(String destinatario, String assunto, String texto) {
+		super();
+		this.destinatario = destinatario;
+		this.assunto = assunto;
+		this.texto = texto;
+	}
 	public String getDestinatario() {
 		return destinatario;
 	}
