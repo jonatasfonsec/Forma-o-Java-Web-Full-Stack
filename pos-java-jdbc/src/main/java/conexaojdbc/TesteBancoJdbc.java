@@ -23,7 +23,7 @@ public class TesteBancoJdbc {
 		userPosDAO.salvar(userposjava);
 	}
 	
-	@Test
+	//@Test
 	public void initListar() {
 		UserPosDAO dao = new UserPosDAO();
 		
@@ -33,6 +33,22 @@ public class TesteBancoJdbc {
 				System.out.println(userposjava);
 				System.out.println("------------------");
 			}
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@Test
+	public void initBuscar() {
+		UserPosDAO dao = new UserPosDAO();
+		
+		try {
+			UserPosJava userposjava = dao.buscar(2L);
+			System.out.println(userposjava);
 			
 			
 		} catch (Exception e) {
