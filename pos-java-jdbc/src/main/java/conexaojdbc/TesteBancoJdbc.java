@@ -42,12 +42,12 @@ public class TesteBancoJdbc {
 		
 	}
 	
-	@Test
+	//@Test
 	public void initBuscar() {
 		UserPosDAO dao = new UserPosDAO();
 		
 		try {
-			UserPosJava userposjava = dao.buscar(2L);
+			UserPosJava userposjava = dao.buscar(1L);
 			System.out.println(userposjava);
 			
 			
@@ -56,6 +56,22 @@ public class TesteBancoJdbc {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	@Test
+	public void initAtualizar() {
+		UserPosDAO dao = new UserPosDAO();
+		
+		try {
+			UserPosJava objetoBanco = dao.buscar(1L);
+			objetoBanco.setNome("Nome mudado com metodo atualizar");
+			dao.atualizar(objetoBanco);
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
